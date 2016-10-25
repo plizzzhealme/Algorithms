@@ -17,6 +17,10 @@ public class Tests
 
     }
 
+    /**
+     * Выводим массив на экран
+     * @param array массив, который нужно вывести
+     */
     public static void printArray(int[] array)
     {
         int length = array.length;
@@ -27,6 +31,11 @@ public class Tests
         System.out.println();
     }
 
+    /**
+     * Генерирует массив из случайных чисел
+     * @param length длина массива
+     * @return готовый массив
+     */
     public static int[] createArray(int length)
     {
         int[] array = new int[length];
