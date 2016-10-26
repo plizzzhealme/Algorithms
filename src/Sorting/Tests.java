@@ -1,5 +1,7 @@
 package Sorting;
 
+import java.util.Arrays;
+
 /**
  * Тесты сортировок
  */
@@ -7,14 +9,23 @@ public class Tests
 {
     public static void main(String[] args)
     {
+        //Тест пузырьковой сортировки
         int[] array = createArray(20);
         System.out.println("Array:");
         printArray(array);
 
         BubbleSort.sort(array);
-        System.out.println("Sorted:");
+        System.out.println("Bubble Sorted:");
         printArray(array);
 
+        //Тест сортировки слиянием
+        array = createArray(20);
+        System.out.println("Array:");
+        printArray(array);
+
+        MergeSort.sort(array,0,array.length - 1);
+        System.out.println("Merge Sorted:");
+        printArray(array);
     }
 
     /**
