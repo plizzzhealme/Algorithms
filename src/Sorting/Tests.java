@@ -1,31 +1,43 @@
 package Sorting;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  * Тесты сортировок
  */
 public class Tests
 {
-    private static final int SIZE = 20;
+    private static final int SIZE = 5;
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException
     {
-        //Тест пузырьковой сортировки
+        System.out.println("Choose sort type:\n1 - BubbleSort\n2 - InsertionSort\n3 - MergeSort");
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        int sortType = Integer.parseInt(bufferedReader.readLine());
+
+        System.out.println("Array:");
         int[] array = createArray(SIZE);
-        System.out.println("Array:");
         printArray(array);
 
-        BubbleSort.sort(array);
-        System.out.println("Bubble Sorted:");
-        printArray(array);
+        switch (sortType)
+        {
+            case 1: BubbleSort.sort(array);
+                    System.out.println("BubbleSorted:");
+                    printArray(array);
+                    break;
 
-        //Тест сортировки слиянием
-        array = createArray(SIZE);
-        System.out.println("Array:");
-        printArray(array);
+            case 2: InsertionSort.sort(array);
+                    System.out.println("InsertionSorted:");
+                    printArray(array);
+                    break;
 
-        MergeSort.sort(array,0,array.length - 1);
-        System.out.println("Merge Sorted:");
-        printArray(array);
+            case 3: MergeSort.sort(array, 0, array.length - 1);
+                    System.out.println("MergeSorted:");
+                    printArray(array);
+                    break;
+        }
     }
 
     /**
