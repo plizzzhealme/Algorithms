@@ -5,7 +5,7 @@ package Sorting;
  */
 public class Tests
 {
-    private static final int SIZE = 10;
+    private static final int SIZE = 20;
 
     public static void main(String[] args)
     {

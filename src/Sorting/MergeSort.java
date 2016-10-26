@@ -15,10 +15,14 @@ public class MergeSort
      */
     private static void merge (int array[], int from1, int to1, int from2, int to2)
     {
-        //Дополнительный массив, используем его для временного хранения
-        int[] temp = new int[array.length];
+        //Определяем общую длину отсортированных подмассивов
         int length = to2 - from1 + 1;
-        int index = from1;
+        //Дополнительный массив, используем его для временного хранения
+        int[] temp = new int[length];
+        //Запоминаем начальный индекс в исходном массиве
+        int arrayIndex = from1;
+        //Текущий индекс во временном массиве
+        int tempIndex = 0;
 
         //Пока есть элементы в обоих подмассивах
         while (from1 <= to1 && from2 <= to2)
@@ -28,15 +32,15 @@ public class MergeSort
             if (array[from1] <= array[from2])
             {
                 //Если меньший элемент в первом подмассиве
-                temp[index] = array[from1];
-                index++;
+                temp[tempIndex] = array[from1];
+                tempIndex++;
                 from1++;
             }
             else
             {
                 //Если меньший элемент во втором подмассиве
-                temp[index] = array[from2];
-                index++;
+                temp[tempIndex] = array[from2];
+                tempIndex++;
                 from2++;
             }
         }
@@ -45,24 +49,24 @@ public class MergeSort
         while (from1 <= to1)
         {
             //Заносим их во временный массив
-            temp[index] = array[from1];
+            temp[tempIndex] = array[from1];
             from1++;
-            index++;
+            tempIndex++;
         }
 
         //Если элементы остались во втором подмассиве (а в первом закончились)
         while (from2 <= to2)
         {
             //Заносим их во временный массив
-            temp[index] = array[from2];
+            temp[tempIndex] = array[from2];
             from2++;
-            index++;
+            tempIndex++;
         }
 
         //Копируем элементы из временного массива в исходный
-        for (int i = to2, j = 0; j < length; i--, j++)
+        for (tempIndex = 0; tempIndex < length; tempIndex++)
         {
-            array[i] = temp[i];
+            array[arrayIndex + tempIndex] = temp[tempIndex];
         }
     }
 
