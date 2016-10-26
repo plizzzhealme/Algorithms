@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
  */
 public class Tests
 {
-    private static final int SIZE = 5;
+    private static final int SIZE = 20;
 
     public static void main(String[] args) throws IOException
     {
