@@ -13,7 +13,11 @@ public class Tests
 
     public static void main(String[] args) throws IOException
     {
-        System.out.println("Choose sort type:\n1 - BubbleSort\n2 - InsertionSort\n3 - MergeSort");
+        System.out.println("Choose sort type:\n" +
+                "1 - BubbleSort\n" +
+                "2 - InsertionSort\n" +
+                "3 - SelectionSort\n" +
+                "4 - MergeSort");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int sortType = Integer.parseInt(bufferedReader.readLine());
 
@@ -33,7 +37,12 @@ public class Tests
                     printArray(array);
                     break;
 
-            case 3: MergeSort.sort(array, 0, array.length - 1);
+            case 3: SelectionSort.sort(array);
+                    System.out.println("SelectionSorted");
+                    printArray(array);
+                    break;
+
+            case 4: MergeSort.sort(array, 0, array.length - 1);
                     System.out.println("MergeSorted:");
                     printArray(array);
                     break;
