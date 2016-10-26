@@ -1,9 +1,7 @@
 package Sorting;
 
-import java.util.Arrays;
-
 /**
- * Created by analBrutality on 25.10.2016.
+ * Сортировка слиянием
  */
 public class MergeSort
 {

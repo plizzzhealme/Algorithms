@@ -5,19 +5,27 @@ package Sorting;
  */
 public class BubbleSort
 {
+    /**
+     * Сортирует массив простыми обменами
+     * @param array Исходный массив
+     */
     public static void sort(int[] array)
     {
         int length = array.length;
+        boolean sorted = false;
 
-        for (int i = 0; i < length; i++)
+        while (!sorted)
         {
-            for (int j = 0; j < length - 1; j++)
+            sorted = true;
+
+            for (int i = 0; i < length - 1; i++)
             {
-                if (array[j] > array[j+1])
+                if (array[i] > array[i+1])
                 {
-                    int temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
+                    int temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                    sorted = false;
                 }
             }
         }

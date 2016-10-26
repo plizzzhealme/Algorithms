@@ -1,16 +1,16 @@
 package Sorting;
 
-import java.util.Arrays;
-
 /**
  * Тесты сортировок
  */
 public class Tests
 {
+    private static final int SIZE = 10;
+
     public static void main(String[] args)
     {
         //Тест пузырьковой сортировки
-        int[] array = createArray(20);
+        int[] array = createArray(SIZE);
         System.out.println("Array:");
         printArray(array);
 
@@ -19,7 +19,7 @@ public class Tests
         printArray(array);
 
         //Тест сортировки слиянием
-        array = createArray(20);
+        array = createArray(SIZE);
         System.out.println("Array:");
         printArray(array);
 
