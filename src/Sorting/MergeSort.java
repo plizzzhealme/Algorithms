@@ -3,18 +3,17 @@ package Sorting;
 /**
  * Сортировка слиянием
  */
-public class MergeSort
-{
+class MergeSort {
     /**
      * Сливает два отсортированных подмассива в один
+     *
      * @param array исходный массив
      * @param from1 начальный индекс первого подмассива
-     * @param to1 последний индекс первого подмассива
+     * @param to1   последний индекс первого подмассива
      * @param from2 начальный индекс второго подмассива
-     * @param to2 последний индекс второго подмассива
+     * @param to2   последний индекс второго подмассива
      */
-    private static void merge (int array[], int from1, int to1, int from2, int to2)
-    {
+    private static void merge(int array[], int from1, int to1, int from2, int to2) {
         //Определяем общую длину отсортированных подмассивов
         int length = to2 - from1 + 1;
         //Дополнительный массив, используем его для временного хранения
@@ -25,19 +24,15 @@ public class MergeSort
         int tempIndex = 0;
 
         //Пока есть элементы в обоих подмассивах
-        while (from1 <= to1 && from2 <= to2)
-        {
+        while (from1 <= to1 && from2 <= to2) {
             //Сравниваем их текущие элементы и меньший
             //заносим во временный массив, смещаем индексы
-            if (array[from1] <= array[from2])
-            {
+            if (array[from1] <= array[from2]) {
                 //Если меньший элемент в первом подмассиве
                 temp[tempIndex] = array[from1];
                 tempIndex++;
                 from1++;
-            }
-            else
-            {
+            } else {
                 //Если меньший элемент во втором подмассиве
                 temp[tempIndex] = array[from2];
                 tempIndex++;
@@ -46,8 +41,7 @@ public class MergeSort
         }
 
         //Если элементы остались в первом подмассиве (а во втором закончились)
-        while (from1 <= to1)
-        {
+        while (from1 <= to1) {
             //Заносим их во временный массив
             temp[tempIndex] = array[from1];
             from1++;
@@ -55,8 +49,7 @@ public class MergeSort
         }
 
         //Если элементы остались во втором подмассиве (а в первом закончились)
-        while (from2 <= to2)
-        {
+        while (from2 <= to2) {
             //Заносим их во временный массив
             temp[tempIndex] = array[from2];
             from2++;
@@ -64,23 +57,21 @@ public class MergeSort
         }
 
         //Копируем элементы из временного массива в исходный
-        for (tempIndex = 0; tempIndex < length; tempIndex++)
-        {
+        for (tempIndex = 0; tempIndex < length; tempIndex++) {
             array[arrayIndex + tempIndex] = temp[tempIndex];
         }
     }
 
     /**
      * Сортирует массив в пределах указанных индексов
+     *
      * @param array массив
-     * @param from Индекс начала сортировки
-     * @param to Индекс конца сортировки
+     * @param from  Индекс начала сортировки
+     * @param to    Индекс конца сортировки
      */
-    public static void sort (int array[], int from, int to)
-    {
+    public static void sort(int array[], int from, int to) {
         //Если длина сортируемой части массива больше 0
-        if (to > from)
-        {
+        if (to > from) {
             int middle = (from + to) / 2;
             //То рекурсивно вызываемся для сортировки левой
             sort(array, from, middle);
